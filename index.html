@@ -17,17 +17,25 @@
         <div class="add">
             <h2>Add Task</h2>
             <input type="text">
-            <button><i class="fa-solid fa-square-plus"></i></button>
+            <button id="add-task"><i class="fa-solid fa-square-plus"></i></button>
+            <button id="eraser"><i class="fa-solid fa-eraser"></i></button>
         </div>
         <div class="tasks">
-            <div class="status">
-                <h1>Start</h1>
+            <div class="status" id="first">
+                <h1>No Status</h1>
+                <!-- <div draggable="true" class="my-task">
+                    Test
+                    <i class="fa-solid fa-close"></i>
+                </div> -->
             </div>
             <div class="status">
-                <h1>Progress</h1>
+                <h1>Not Started</h1>
             </div>
             <div class="status">
-                <h1>End</h1>
+                <h1>In Progress</h1>
+            </div>
+            <div class="status">
+                <h1>Completed</h1>
             </div>
         </div>
     </div>
