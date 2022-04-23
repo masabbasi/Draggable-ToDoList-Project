@@ -81,7 +81,7 @@ h1{
 }
 
 .my-task {
-    width: 13rem;
+    width: 12.5rem;
     margin: 0.5rem;
     padding: 0.5rem 0.8rem;
     border: 1px solid gray;
@@ -90,4 +90,10 @@ h1{
     justify-content: space-between;
     /* text-overflow: ellipsis;  */
     /* white-space: pre-wrap; */
+    word-break: break-all;
+}
+
+.fa-close {
+    margin-left: 0.5rem;
+    color: red;
 }
