@@ -53,7 +53,10 @@ myVars.status.forEach(function(item){
         event.preventDefault()
     })
     item.addEventListener('drop',function(event){
+        if (event.target.className == "status") {
             dragged.parentNode.removeChild(dragged);
-            event.target.appendChild(dragged);    
+            event.target.appendChild(dragged);
+          }
+      
 })
 })
