@@ -1,4 +1,5 @@
 const $ = document;
+let dragged;
 const myVars = {
     input:$.querySelector('input'),
     addTask:$.getElementById('add-task'),
@@ -18,6 +19,17 @@ function addTask () {
     createDiv.appendChild(createI);
     createDiv.draggable="true"
     myVars.first.appendChild(createDiv);
+    createI.addEventListener('click',function(event){
+        event.target.parentElement.remove()
+    })
+    createDiv.addEventListener('dragstart',function(event){
+        dragged = createDiv;
+    })
+    myVars.input.value=''
+}
+
+function removeTask(event) {
+    event.target.parentElement.remove()
 }
 
 myVars.input.addEventListener('keypress',function(event){
@@ -36,19 +48,15 @@ myVars.eraser.addEventListener('click',function(){
     myVars.input.value="";
 })
 
-myVars.allTask.forEach(function(item){
-    item.addEventListener('dragstart',function(event){
-        // event.dataTransfer.setData('taskText',event.value)
-        console.log('dragstart');
-    })
-})
-
 myVars.status.forEach(function(item){
-    item.addEventListener('dragover',function(event){
+   item.addEventListener('dragover',function(event){
         event.preventDefault()
     })
-item.addEventListener('drop',function(event){
-    // let myTaskText = event.dataTransfer.getData('taskText')
-    console.log('drop');
+    item.addEventListener('drop',function(event){
+        if (event.target.className == "status") {
+            dragged.parentNode.removeChild(dragged);
+            event.target.appendChild(dragged);
+          }
+      
 })
 })
